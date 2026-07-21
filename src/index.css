@@ -1,0 +1,165 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: #0b0b0f;
+    color: #f5f5f5;
+    font-family: 'Manrope', sans-serif;
+    overflow-x: hidden;
+    min-width: 320px;
+  }
+
+  ::selection {
+    background: rgba(72, 209, 204, 0.25);
+    color: #f5f5f5;
+  }
+}
+
+@layer utilities {
+  .glass {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .glass-hover {
+    transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+  }
+
+  .glass-hover:hover,
+  .glass-hover:active {
+    background: rgba(255, 255, 255, 0.07);
+    border-color: rgba(72, 209, 204, 0.25);
+    transform: translateY(-2px);
+  }
+
+  .mint-text {
+    background: linear-gradient(135deg, #48d1cc 0%, #69e7c1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .mint-glow-shadow {
+    box-shadow: 0 0 32px rgba(72, 209, 204, 0.2), 0 4px 24px rgba(0, 0, 0, 0.4);
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #48d1cc 0%, #69e7c1 100%);
+    color: #0b0b0f;
+    font-weight: 700;
+    font-family: 'Manrope', sans-serif;
+    border-radius: 12px;
+    padding: 14px 28px;
+    min-height: 48px;
+    min-width: 48px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .btn-primary:hover,
+  .btn-primary:active {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 8px 28px rgba(72, 209, 204, 0.35);
+    opacity: 0.95;
+  }
+
+  .btn-primary:active {
+    transform: translateY(0) scale(0.98);
+  }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: transparent;
+    color: #48d1cc;
+    font-weight: 600;
+    font-family: 'Manrope', sans-serif;
+    border-radius: 10px;
+    padding: 10px 20px;
+    min-height: 44px;
+    border: 1px solid rgba(72, 209, 204, 0.35);
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    text-decoration: none;
+    font-size: 14px;
+    white-space: nowrap;
+  }
+
+  .btn-ghost:hover,
+  .btn-ghost:active {
+    background: rgba(72, 209, 204, 0.08);
+    border-color: rgba(72, 209, 204, 0.6);
+    transform: translateY(-1px);
+  }
+
+  .section-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(72, 209, 204, 0.1);
+    border: 1px solid rgba(72, 209, 204, 0.2);
+    color: #48d1cc;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 100px;
+  }
+
+  .noise-overlay {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+  }
+
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .step-connector {
+    width: 1px;
+    flex: 1;
+    background: linear-gradient(to right, rgba(72,209,204,0.2), rgba(72,209,204,0.05));
+  }
+}
+
+@media (max-width: 480px) {
+  .btn-primary {
+    padding: 13px 22px;
+    font-size: 15px;
+  }
+}
